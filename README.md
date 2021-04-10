@@ -1,5 +1,5 @@
 # web-scraping-sebos
-Programa inspirado no meu projeto final: "Varejo de produtos e mercados de cauda longa: Um estudo de caso sobre a Estante Virtual".  O objetivo deste trabalho é refazer o antigo programa em javascript, utilizando o Puppeteer ( https://github.com/puppeteer/puppeteer) e ir além - 0bjetivos ainda seram melhor desenvolvidos e descritos aqui.
+Programa inspirado no meu projeto final: "Varejo de produtos e mercados de cauda longa: Um estudo de caso sobre a Estante Virtual".  O objetivo deste trabalho é refazer o antigo programa em javascript, utilizando o Puppeteer ( https://github.com/puppeteer/puppeteer) e ir além (sim, esses objetivos vão evoluir ao longo do tempo, rs).
 
 
 # Histórico
@@ -9,3 +9,5 @@ Na época o programa tinha sido desenvolvido em java, utilizando selenium.
 
 # Objetivo
 Desnvolver um programa similar ao desenvolvido na época do projeto final, mas sem a parte de envio de questionários para os donos dos sebos. O foco principal aqui é criar estatisticas mais solidas sobre os sebos e estruturar melhor os dados, que provavelmente serão salvos em um JSON. 
+
+Muito mais coisas são possívei com o pupeteer e conforme o conhecimento sobre a ferramenta for aumentando, mais objetivos aparecerão ;) .
