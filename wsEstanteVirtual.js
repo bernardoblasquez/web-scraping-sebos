@@ -16,10 +16,10 @@ const convertObjectToJsonFile = (fileName, listOfObects) =>{
 
 }
 
-const bookStoreBot = async(url) => {
+const estanteVirtualBot = async() => {
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
-    await page.goto(url);
+    await page.goto('https://www.estantevirtual.com.br/garimpepor/sebos-e-livreiros');
     //await page.screenshot({ path: 'images/screenshot.png' });
 
     console.log("Scraping Book Stores: Estante Vitual");
@@ -52,7 +52,7 @@ const bookStoreBot = async(url) => {
     await browser.close();
 }
 
-bookStoreBot('https://www.estantevirtual.com.br/garimpepor/sebos-e-livreiros');
+bookStoreBot();
 
 
 
