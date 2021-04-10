@@ -52,7 +52,7 @@ const estanteVirtualBot = async() => {
     await browser.close();
 }
 
-bookStoreBot();
+estanteVirtualBot();
 
 
 
