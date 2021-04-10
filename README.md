@@ -11,3 +11,11 @@ Na época o programa tinha sido desenvolvido em java, utilizando selenium.
 Desnvolver um programa similar ao desenvolvido na época do projeto final, mas sem a parte de envio de questionários para os donos dos sebos. O foco principal aqui é criar estatisticas mais solidas sobre os sebos e estruturar melhor os dados, que provavelmente serão salvos em um JSON. 
 
 Muito mais coisas são possívei com o pupeteer e conforme o conhecimento sobre a ferramenta for aumentando, mais objetivos aparecerão ;) .
+
+# Como rodar o Projeto
+
+Primeiro é necessário instalar o Puppeteer:
+ - npm i puppeteer
+
+ Depois de instalado o Peppeteer basta executar o arquivo:
+ - node wsEstanteVirtual.js
