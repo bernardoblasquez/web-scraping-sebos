@@ -18,7 +18,7 @@ const convertObjectToJsonFile = (fileName, listOfObects) =>{
 
 }
 
-const dateSuffix = () =>{
+const addDateSuffixTofileName = (prefix) =>{
     
     let stringDateSuffix = ''
 
@@ -27,7 +27,7 @@ const dateSuffix = () =>{
     const month = today.toLocaleString('en-US', {month: 'short'})
     const year = today.toLocaleString('en-US', {year: 'numeric'})
 
-    stringDateSuffix = day + "_" + month.toUpperCase() + "_" + year
+    stringDateSuffix = prefix + day + "_" + month.toUpperCase() + "_" + year
 
     return stringDateSuffix
 }
@@ -63,8 +63,9 @@ const estanteVirtualBot = async() => {
         return bookStore_EstanteVirtual
     }); 
 
-    const fileName = "EV_" + dateSuffix(); 
-    convertObjectToJsonFile(fileName, bookStores)
+    let fileName = 'EV_';
+    fileName =  addDateSuffixTofileName(fileName); 
+    convertObjectToJsonFile(fileName, bookStores);
 
     await browser.close();
 }
