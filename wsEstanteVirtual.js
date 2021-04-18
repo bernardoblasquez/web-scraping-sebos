@@ -8,6 +8,8 @@ const convertObjectToJsonFile = (fileName, listOfObects) =>{
     const folderName = 'files'
     const path = `${folderName}/${fileName}.json`
 
+    console.log("Saving list of Book Stores in a JSON file...");
+
     fileSystem.writeFile( path, JSONString,
         (error) => {
             if (error) console.log(err);
@@ -16,7 +18,22 @@ const convertObjectToJsonFile = (fileName, listOfObects) =>{
 
 }
 
+const dateSuffix = () =>{
+    
+    let stringDateSuffix = ''
+
+    const today = new Date();
+    const day = today.toLocaleString('en-US', {day: '2-digit'})
+    const month = today.toLocaleString('en-US', {month: 'short'})
+    const year = today.toLocaleString('en-US', {year: 'numeric'})
+
+    stringDateSuffix = day + "_" + month.toUpperCase() + "_" + year
+
+    return stringDateSuffix
+}
+
 const estanteVirtualBot = async() => {
+
     const browser = await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     await page.goto('https://www.estantevirtual.com.br/garimpepor/sebos-e-livreiros');
@@ -30,14 +47,14 @@ const estanteVirtualBot = async() => {
 
         let bookStore_EstanteVirtual = listOfBookStores.map((bookStore) => {
 
-            let bookStoreLocation = bookStore.querySelector(".card-text.js-sebo-local").textContent.split(", ")
+            let [cityLocation, stateLocation] = bookStore.querySelector(".card-text.js-sebo-local").textContent.split(", ")
 
             return {
                 link: bookStore.querySelector(".clearfix.card-link").href,
                 name: bookStore.querySelector(".card-title.sebo-nome.js-sebo-titulo").textContent,
                 location: {
-                    municipio: bookStoreLocation[0],
-                    estado: bookStoreLocation[1]
+                    city: cityLocation,
+                    state: stateLocation
                 },
                 totalOfBooks: bookStore.querySelector(".js-sebo-acervo").textContent
             }
@@ -46,8 +63,8 @@ const estanteVirtualBot = async() => {
         return bookStore_EstanteVirtual
     }); 
 
-    console.log("Saving list of Book Stores in a JSON file...");
-    convertObjectToJsonFile('listaSebos_EstanteVirtual', bookStores)
+    const fileName = "EV_" + dateSuffix(); 
+    convertObjectToJsonFile(fileName, bookStores)
 
     await browser.close();
 }
